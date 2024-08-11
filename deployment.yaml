@@ -1,0 +1,11 @@
+from kubenates import client ,config
+def main():
+    config.load_kube_config()
+    apps_v1 = client.CoreappsV1Api()
+    deployment= apps_v1.list_deployment_for_all_namespaces(namespace="default")
+    for deployment in deployments.items:
+        name= deployment.metadata.name
+        replicas = deployment.status.replicas
+        print(f"Deployment {name} has {replicas} replicas")
+  
+ 
